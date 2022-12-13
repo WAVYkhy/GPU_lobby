@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WPF_statistics</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<script type="text/javascript">
+			// Hide Header on on scroll down
+			var didScroll;
+			var lastScrollTop = 0;
+			var delta = 5;
+			var navbarHeight = $('header').outerHeight();
+
+			$(window).scroll(function(event){
+			    didScroll = true;
+			});
+
+			setInterval(function() {
+			    if (didScroll) {
+			        hasScrolled();
+			        didScroll = false;
+			    }
+			}, 250);
+
+			function hasScrolled() {
+			    var st = $(this).scrollTop();
+			    
+			    // Make sure they scroll more than delta
+			    if(Math.abs(lastScrollTop - st) <= delta)
+			        return;
+			    
+			    // If they scrolled down and are past the navbar, add class .nav-up.
+			    // This is necessary so you never see what is "behind" the navbar.
+			    if (st > lastScrollTop && st > navbarHeight){
+			        // Scroll Down
+			        $('header').removeClass('nav-down').addClass('nav-up');
+			    } else {
+			        // Scroll Up
+			        if(st + $(window).height() < $(document).height()) {
+			            $('header').removeClass('nav-up').addClass('nav-down');
+			        }
+			    }
+			    
+			    lastScrollTop = st;
+			}
+				(function( $ ) {
+			    "use strict";
+			    $(function() {
+			        function animated_contents() {
+			            $(".zt-skill-bar > div ").each(function (i) {
+			                var $this  = $(this),
+			                    skills = $this.data('width');
+			 
+			                $this.css({'width' : skills + '%'});
+			 
+			            });
+			        }
+			        
+			        if(jQuery().appear) {
+			            $('.zt-skill-bar').appear().on('appear', function() {
+			                animated_contents();
+			            });
+			        } else {
+			            animated_contents();
+			        }
+			    });
+			}(jQuery));
+	</script>
+
+	<header>
+		<div class="nav-box">
+			<div class="nav">
+				<div class="logo-wrap">
+					<img class="logo" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%206.svg?v=1670566152682"
+					style="cursor: pointer;"
+					onclick="location.href='index.html'">
+				</div>
+				<div class="nav-items">
+					<a href="index.html">MAIN</a>
+					<a href="WPF_statistics.html"><strong>STATISTICS</strong></a>
+					<a href="WPF_benchmark.html">BENCHMARK</a>
+					<a href="WPF_about.html">ABOUT</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="full">
+		<div class="container">
+			<div class="top">
+				<h1>#Graphic_Cards</h1>
+				<p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>
+				About performance and detailed informations of graphic cards, core of PC.</p>
+			</div>
+			<div class="text-box">
+				<h1>그래픽 카드 벤치마크 랭킹</h1>
+				<p>PassMark Software는 PerformanceTest 사용자가 웹 사이트에 게시한 수백만 개의 벤치마크 결과를 자세히 조사하고 4개의 차트를 생성하여 AMD, Nvidia, Intel 등 주요 제조업체의 서로 다른 비디오 카드의 상대적인 성능을 비교해줍니다. 고품질 비디오 카드는 PC 게임, 비디오 편집 및 소프트웨어 개발과 같은 많은 컴퓨팅 작업에서 전반적인 시스템 성능을 향상시킵니다.</p>
+			</div>
+			<div class="category-wrap">
+				<a class="category"
+				style="cursor: pointer;"
+				onclick="location.href='#'">
+					<h1>Performance</h1>
+				</a>
+				<a class="category"
+				style="cursor: pointer;"
+				onclick="location.href='#'">
+					<h1>Price Performance</h1>
+				</a>
+				<a class="category"
+				style="cursor: pointer;"
+				onclick="location.href='#'">
+					<h1>Hierarchy</h1>
+				</a>
+			</div>
+			<div class="text-box-2">
+				<h1>Performance</h1>
+				<p>성능순 정렬</p>
+			</div>
+			<div class="chart-text">
+				<h1>그래픽카드</h1>
+				<h1>평균 점수</h1>
+				<h1>가격 (KRW)</h1>
+			</div>
+			<div class="statistics-box" 
+			style="cursor: pointer;" 
+			onclick="location.href='WPF_detail.html'">
+				<table>
+					<tr>
+						<td class="num">1</td>
+						<td class="name">GeForce RTX 4090</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="100"><span>39,048</span></div>
+							</div>
+						</td>
+						<td class="price">2,476,600</td>
+					</tr>
+					<tr>
+						<td class="num">2</td>
+						<td class="name">GeForce RTX 4080</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="88"><span>34,626</span></div>
+							</div>
+						</td>
+						<td class="price">1,643,380</td>
+					</tr>
+					<tr>
+						<td class="num">3</td>
+						<td class="name">GeForce RTX 3090 Ti</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="77"><span>29,658</span></div>
+							</div>
+						</td>
+						<td class="price">1,434,695</td>
+					</tr>
+					<tr>
+						<td class="num">4</td>
+						<td class="name">Radeon RX 6950 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="74"><span>28,982</span></div>
+							</div>
+						</td>
+						<td class="price">1,023,847</td>
+					</tr>
+					<tr>
+						<td class="num">5</td>
+						<td class="name">GeForce RTX 3080 Ti</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="70"><span>26,767</span></div>
+							</div>
+						</td>
+						<td class="price">1,499,909</td>
+					</tr>
+					<tr>
+						<td class="num">6</td>
+						<td class="name">GeForce RTX 3090</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="68"><span>26,767</span></div>
+							</div>
+						</td>
+						<td class="price">2,116,612</td>
+					</tr>
+					<tr>
+						<td class="num">7</td>
+						<td class="name">GeForce RTX 3080 12GB</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="68"><span>26,676</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">8</td>
+						<td class="name">Radeon RX 6900 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="67"><span>26,424</span></div>
+							</div>
+						</td>
+						<td class="price">893,419</td>
+					</tr>
+					<tr>
+						<td class="num">9</td>
+						<td class="name">GeForce RTX 3080</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="64"><span>25,273</span></div>
+							</div>
+						</td>
+						<td class="price">1,017,325</td>
+					</tr>
+
+					<tr>
+						<td class="num">10</td>
+						<td class="name">Radeon RX 6800 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="62"><span>24,279</span></div>
+							</div>
+						</td>
+						<td class="price">847,769</td>
+					</tr>
+					<tr>
+						<td class="num">11</td>
+						<td class="name">GeForce RTX 3070 Ti</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="61"><span>23,684</span></div>
+							</div>
+						</td>
+						<td class="price">782,555</td>
+					</tr>
+					<tr>
+						<td class="num">12</td>
+						<td class="name">RTX A5000</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="60"><span>23,566</span></div>
+							</div>
+						</td>
+						<td class="price">2,738,975</td>
+					</tr>
+					<tr>
+						<td class="num">13</td>
+						<td class="name">RTX A5500</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="60"><span>22,734</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">14</td>
+						<td class="name">GeForce RTX 3070</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="58"><span>22,367</span></div>
+							</div>
+						</td>
+						<td class="price">652,127</td>
+					</tr>
+					<tr>
+						<td class="num">15</td>
+						<td class="name">RTX A6000</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="56"><span>22,079</span></div>
+							</div>
+						</td>
+						<td class="price">6,122,264</td>
+					</tr>
+					<tr>
+						<td class="num">16</td>
+						<td class="name">GeForce RTX 2080 Ti</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="56"><span>21,865</span></div>
+							</div>
+						</td>
+						<td class="price">1,467,302</td>
+					</tr>
+					<tr>
+						<td class="num">17</td>
+						<td class="name">Radeon RX 6850M XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="55"><span>21,792</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">18</td>
+						<td class="name">Radeon RX 6800</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="55"><span>24,406</span></div>
+							</div>
+						</td>
+						<td class="price">665,170</td>
+					</tr>
+					<tr>
+						<td class="num">19</td>
+						<td class="name">RTX A4500</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="54"><span>21,177</span></div>
+							</div>
+						</td>
+						<td class="price">2,999,831</td>
+					</tr>
+					<tr>
+						<td class="num">20</td>
+						<td class="name">A10-24Q</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="54"><span>20,591</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">21</td>
+						<td class="name">GeForce RTX 3060 Ti</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="52"><span>20,449</span></div>
+							</div>
+						</td>
+						<td class="price">521,699</td>
+					</tr>
+					<tr>
+						<td class="num">22</td>
+						<td class="name">GeForce RTX 3080 Ti Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="52"><span>20,391</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">23</td>
+						<td class="name">Radeon RX 6750 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="52"><span>20,232</span></div>
+							</div>
+						</td>
+						<td class="price">534,742</td>
+					</tr>
+					<tr>
+						<td class="num">24</td>
+						<td class="name">TITAN V</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="51"><span>19,925</span></div>
+							</div>
+						</td>
+						<td class="price">2,608,547</td>
+					</tr>
+					<tr>
+						<td class="num">25</td>
+						<td class="name">TITAN RTX</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="51"><span>19,853</span></div>
+							</div>
+						</td>
+						<td class="price">3,645,450</td>
+					</tr>
+					<tr>
+						<td class="num">26</td>
+						<td class="name">Quadro GV100</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="49"><span>19,616</span></div>
+							</div>
+						</td>
+						<td class="price">11,737,216</td>
+					</tr>
+					<tr>
+						<td class="num">27</td>
+						<td class="name">Quadro RTX 8000</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="49"><span>19,572</span></div>
+							</div>
+						</td>
+						<td class="price">6,184,231</td>
+					</tr>
+					<tr>
+						<td class="num">28</td>
+						<td class="name">GeForce RTX 2080 SUPER</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="49"><span>19,543</span></div>
+							</div>
+						</td>
+						<td class="price">966,458</td>
+					</tr>
+					<tr>
+						<td class="num">29</td>
+						<td class="name">Quadro RTX 6000</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="49"><span>19,384</span></div>
+							</div>
+						</td>
+						<td class="price">8,216,964</td>
+					</tr>
+					<tr>
+						<td class="num">30</td>
+						<td class="name">Radeon RX 6700 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="49"><span>19,345</span></div>
+							</div>
+						</td>
+						<td class="price">508,656</td>
+					</tr>
+					<tr>
+						<td class="num">31</td>
+						<td class="name">NVIDIA TITAN Xp</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="48"><span>19,209</span></div>
+							</div>
+						</td>
+						<td class="price">2,145,541</td>
+					</tr>
+					<tr>
+						<td class="num">32</td>
+						<td class="name">RTX A4000</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="48"><span>19,061</span></div>
+							</div>
+						</td>
+						<td class="price">1,278,181</td>
+					</tr>
+					<tr>
+						<td class="num">33</td>
+						<td class="name">Radeon PRO W6800</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="48"><span>18,977</span></div>
+							</div>
+						</td>
+						<td class="price">2,478,119</td>
+					</tr>
+					<tr>
+						<td class="num">34</td>
+						<td class="name">TITAN Xp COLLECTORS EDITION</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="48"><span>18,922</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">35</td>
+						<td class="name">GeForce RTX 2080</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="47"><span>18,756</span></div>
+							</div>
+						</td>
+						<td class="price">1,039,576</td>
+					</tr>
+					<tr>
+						<td class="num">36</td>
+						<td class="name">A10G</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="47"><span>18,724</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">37</td>
+						<td class="name">Radeon RX 6700</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="47"><span>18,723</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">38</td>
+						<td class="name">GeForce GTX 1080 Ti</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="47"><span>18,418</span></div>
+							</div>
+						</td>
+						<td class="price">631,037</td>
+					</tr>
+					<tr>
+						<td class="num">39</td>
+						<td class="name">GeForce RTX 3070 Ti Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="46"><span>18,302</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">40</td>
+						<td class="name">GeForce RTX 2070 SUPER</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="46"><span>18,207</span></div>
+							</div>
+						</td>
+						<td class="price">672,774</td>
+					</tr>
+					<tr>
+						<td class="num">41</td>
+						<td class="name">RTX A4500 Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="44"><span>17,957</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">42</td>
+						<td class="name">Radeon RX 6650 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="44"><span>17,698</span></div>
+							</div>
+						</td>
+						<td class="price">352,143</td>
+					</tr>
+					<tr>
+						<td class="num">43</td>
+						<td class="name">RTX A5500 Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="43"><span>17,289</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">44</td>
+						<td class="name">GeForce RTX 3060</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="43"><span>17,121</span></div>
+							</div>
+						</td>
+						<td class="price">469,528</td>
+					</tr>
+					<tr>
+						<td class="num">45</td>
+						<td class="name">TITAN V CEO Edition</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="42"><span>16,988</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">46</td>
+						<td class="name">Radeon RX 5700 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="42"><span>16,927</span></div>
+							</div>
+						</td>
+						<td class="price">1,042,120</td>
+					</tr>
+					<tr>
+						<td class="num">47</td>
+						<td class="name">Tesla P40</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="42"><span>16,854</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">48</td>
+						<td class="name">Radeon Pro VII</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="42"><span>16,853</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">49</td>
+						<td class="name">Radeon VII</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="42"><span>16,828</span></div>
+							</div>
+						</td>
+						<td class="price">2,478,067</td>
+					</tr>
+					<tr>
+						<td class="num">50</td>
+						<td class="name">Radeon RX 5700 XT 50th Anniversary</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="42"><span>16,696</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">51</td>
+						<td class="name">GeForce RTX 3080 Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="41"><span>16,611</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">52</td>
+						<td class="name">GeForce RTX 2060 SUPER</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="41"><span>16,564</span></div>
+							</div>
+						</td>
+						<td class="price">391,271</td>
+					</tr>
+					<tr>
+						<td class="num">53</td>
+						<td class="name">Tesla V100-SXM2-16GB</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="41"><span>16,235</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">54</td>
+						<td class="name">Quadro RTX 5000</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="41"><span>16,176</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">55</td>
+						<td class="name">Radeon RX 6600 XT</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="40"><span>16,140</span></div>
+							</div>
+						</td>
+						<td class="price">391,271</td>
+					</tr>
+					<tr>
+						<td class="num">56</td>
+						<td class="name">RTX A5000 Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="40"><span>16,126</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">57</td>
+						<td class="name">GeForce RTX 2070</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="40"><span>16,116</span></div>
+							</div>
+						</td>
+						<td class="price">391,271</td>
+					</tr>
+					<tr>
+						<td class="num">58</td>
+						<td class="name">Miracast display port driver V3</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="40"><span>15,910</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">59</td>
+						<td class="name">GeForce RTX 2060 12GB</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="40"><span>15,802</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>
+					<tr>
+						<td class="num">60</td>
+						<td class="name">RTX A4000 Laptop GPU</td>
+						<td class="graph">
+							<div class="zt-skill-bar">
+							   	<div data-width="39"><span>15,664</span></div>
+							</div>
+						</td>
+						<td class="price">N/A</td>
+					</tr>				
+				</table>
+			</div>			
+			<div class="top-footer">
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://discord.com/')" 
+				>
+					<h1>Discord로 함께하기</h1>
+					<p>공식 GPU Lobby 디스코드에 참여하여 다른 사람들과 토론하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2096.svg?v=1670565914963">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://www.instagram.com/')"
+				>
+					<h1>Instargram으로 소식 받기</h1>
+					<p>공식 GPU Lobby 인스타그램을 팔로우하여 누구보다 빠르게 소식을 접하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2097.svg?v=1670776114678">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://twitter.com/')"
+				>
+					<h1>Twitter로 소통하기</h1>
+					<p>공식 GPU Lobby 트위터와 함께 새소식에 대해 이야기하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2098.svg?v=1670776114206">
+				</div>
+			</div>			
+		</div>
+	</div>
+	<footer>
+		<div class="box">
+			<div class="nav">
+				<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%201.svg?v=1670566712298">
+				<div class="text-box">
+					<h1 style=" cursor: pointer;" onclick="location.href='index.html';">MAIN</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_statistics.html';"><strong>STATISTICS</strong></h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_benchmark.html';">BENCMARK</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_about.html';">ABOUT</h1>
+				</div>
+				<div class="box">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-telegram-4.svg?v=1670567265243">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-gmail-4.svg?v=1670567267157">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-discord-4.svg?v=1670567266535">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-wechat-4.svg?v=1670567265880">
+				</div>
+			</div>
+			<div class="blank-2"></div>
+			<div class="text-box">
+				<h1>#Graphic_Cards</h1>
+				<p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>About performance and detailed informations of graphic cards, core of PC.</p>
+			</div>
+			<div class="nav_2">
+				<p class="footer_p">© Copyrights. 2022 GPU Lobby. All rights reserved. All trademarks are the property of their respective owners.</p>
+			</div>
+		</div>
+	</footer>
+
+
+	
+	
+
+</body>
+</html>
