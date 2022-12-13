@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>WPF_detail</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <style type="text/css">
+      :root{
+      --maincolor : #76B900;
+      --maincolor-2 : #556240;
+      --maincolor-3 : #203620;
+      --greyscale-1 : #888888;
+      --greyscale-2 : #606060;
+      --greyscale-3 : #333333;
+      --greyscale-4 : #212121;
+      --greyscale-0 : #FFFFFF;
+      }
+   </style>
+   <body>
+      <script type="text/javascript">
+         // Hide Header on on scroll down
+         var didScroll;
+         var lastScrollTop = 0;
+         var delta = 5;
+         var navbarHeight = $('header').outerHeight();
+         
+         $(window).scroll(function(event){
+             didScroll = true;
+         });
+         
+         setInterval(function() {
+             if (didScroll) {
+                 hasScrolled();
+                 didScroll = false;
+             }
+         }, 250);
+         
+         function hasScrolled() {
+             var st = $(this).scrollTop();
+             
+             // Make sure they scroll more than delta
+             if(Math.abs(lastScrollTop - st) <= delta)
+                 return;
+             
+             // If they scrolled down and are past the navbar, add class .nav-up.
+             // This is necessary so you never see what is "behind" the navbar.
+             if (st > lastScrollTop && st > navbarHeight){
+                 // Scroll Down
+                 $('header').removeClass('nav-down').addClass('nav-up');
+             } else {
+                 // Scroll Up
+                 if(st + $(window).height() < $(document).height()) {
+                     $('header').removeClass('nav-up').addClass('nav-down');
+                 }
+             }
+             
+             lastScrollTop = st;
+         }
+         	(function( $ ) {
+             "use strict";
+             $(function() {
+                 function animated_contents() {
+                     $(".zt-skill-bar > div ").each(function (i) {
+                         var $this  = $(this),
+                             skills = $this.data('width');
+          
+                         $this.css({'width' : skills + '%'});
+          
+                     });
+                 }
+                 
+                 if(jQuery().appear) {
+                     $('.zt-skill-bar').appear().on('appear', function() {
+                         animated_contents();
+                     });
+                 } else {
+                     animated_contents();
+                 }
+             });
+         }(jQuery));
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <header>
+		<div class="nav-box">
+			<div class="nav">
+				<div class="logo-wrap">
+					<img class="logo" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%206.svg?v=1670566152682"
+					style="cursor: pointer;"
+					onclick="location.href='index.html'">
+				</div>
+				<div class="nav-items">
+					<a href="index.html">MAIN</a>
+					<a href="WPF_statistics.html"><strong>STATISTICS</strong></a>
+					<a href="WPF_benchmark.html">BENCHMARK</a>
+					<a href="WPF_about.html">ABOUT</a>
+				</div>
+			</div>
+		</div>
+	</header>
+      <div class="full">
+         <div class="container">
+            <div class="top">
+               <h1>#Graphic_Cards</h1>
+               <p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>
+                  About performance and detailed informations of graphic cards, core of PC.
+               </p>
+            </div>
+            <div class="text-box">
+               <h1>3,900개가 넘는 GPU가 벤치마크 되었습니다</h1>
+               <h2>GeForce RTX 4090</h2>
+               <p>GeForce RTX 4090에 대한 세부사항은 아래에서 확인 할 수 있습니다. 사용자들이 직접 시행한 수천 개의 성능 테스트에 의하여 만들어졌으며 매일 업데이트 됩니다. </p>
+            </div>
+            <div class="detail-box">
+               <table>
+                  <tr bgcolor="#76B900" height="48px">
+                     <td width="320px">
+                        <h1>GeForce RTX 4090</h1>
+                     </td>
+                     <td width="260px">
+                        <h1>Average G3D Mark</h1>
+                     </td>
+                     <td width="697px">
+                        <h1>Preview</h1>
+                     </td>
+                  </tr>
+               </table>
+               <table>
+                  <tr>
+                     <td width="320px">
+                        <p><strong>버스 인터페이스</strong>: PCle 4.0 x16</p>
+                        <p><strong>코어 클럭</strong>: 2230 MHz</p>
+                        <p><strong>OpenGL</strong>: 4.6</p>
+                        <p><strong>최대 메모리 크기</strong>: 24576 MB</p>
+                        <p><strong>DirectX</strong>: 12</p>
+                        <p><strong>최대 TDP</strong>: 450W</p>
+                        <p><strong>이명</strong>:  NVIDIA GeForce RTX 4090</p>
+                        <p><strong>최초로 시행된 테스트</strong>: 2022.10.12</p>
+                     </td>
+                     <td class="svg" width="260px">
+                        <img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-window-21%201.svg?v=1670740903974">
+                        <h1>39132</h1>
+                        <p>Average G2D Mark: 1304</p>
+                        <p>Samples: 442</p>
+                     </td>
+                     <td class="img">
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div class="price-history-title">
+               <h1>Price History</h1>
+            </div>
+            <div class="container">
+               <canvas id="myChart"></canvas>
+            </div>
+            <!-- 부트스트랩 -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+               integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+               crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+               integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+               crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+               integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+               crossorigin="anonymous"></script>
+            <!-- 차트 -->
+            <script>
+               var ctx = document.getElementById('myChart').getContext('2d');
+               var chart = new Chart(ctx, {
+                 // 챠트 종류를 선택
+                 type: 'line',
+               
+                 // 챠트를 그릴 데이타
+                 data: {
+                   labels: ['2020.11', '2021.2', '2021.5', '2021.8', '2021.11', '2022.2', '2022.5', '2022.8', '2022.11'],
+                   datasets: [{
+                     label: 'Price History',
+                     backgroundColor: 'transparent',
+                     borderColor: '#76B900',
+                     data: [849.99, 949.99, 849.99, 4399.99, 3799.99, 3718, 999, 799, 729],
+                     backgroundColor: 'rgba(118,185,0,.3)'
+                   }]
+                 },
+                 // 옵션
+                 options: {}
+               });
+            </script>
+            <div class="top-footer">
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://discord.com/')" 
+				>
+					<h1>Discord로 함께하기</h1>
+					<p>공식 GPU Lobby 디스코드에 참여하여 다른 사람들과 토론하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2096.svg?v=1670565914963">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://www.instagram.com/')"
+				>
+					<h1>Instargram으로 소식 받기</h1>
+					<p>공식 GPU Lobby 인스타그램을 팔로우하여 누구보다 빠르게 소식을 접하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2097.svg?v=1670776114678">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://twitter.com/')"
+				>
+					<h1>Twitter로 소통하기</h1>
+					<p>공식 GPU Lobby 트위터와 함께 새소식에 대해 이야기하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2098.svg?v=1670776114206">
+				</div>
+			</div>
+         </div>
+      </div>
+      <footer>
+         <div class="box">
+            <div class="nav">
+               <img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%201.svg?v=1670566712298">
+               <div class="text-box">
+                  <h1 style=" cursor: pointer;" onclick="location.href='index.html';">MAIN</h1>
+                  <h1 style=" cursor: pointer;" onclick="location.href='WPF_statistics.html';"><strong>STATISTICS</strong></h1>
+                  <h1 style=" cursor: pointer;" onclick="location.href='WPF_benchmark.html';">BENCMARK</h1>
+                  <h1 style=" cursor: pointer;" onclick="location.href='WPF_about.html';">ABOUT</h1>
+               </div>
+               <div class="box">
+                  <img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-telegram-4.svg?v=1670567265243">
+                  <img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-gmail-4.svg?v=1670567267157">
+                  <img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-discord-4.svg?v=1670567266535">
+                  <img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-wechat-4.svg?v=1670567265880">
+               </div>
+            </div>
+            <div class="blank-2"></div>
+            <div class="text-box">
+               <h1>#Graphic_Cards</h1>
+               <p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>About performance and detailed informations of graphic cards, core of PC.</p>
+            </div>
+            <div class="nav_2">
+               <p class="footer_p">© Copyrights. 2022 GPU Lobby. All rights reserved. All trademarks are the property of their respective owners.</p>
+            </div>
+         </div>
+      </footer>
+   </body>
+</html>

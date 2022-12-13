@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WPF_main</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<script type="text/javascript">
+		// Hide Header on on scroll down
+		var didScroll;
+		var lastScrollTop = 0;
+		var delta = 5;
+		var navbarHeight = $('header').outerHeight();
+
+		$(window).scroll(function(event){
+		    didScroll = true;
+		});
+
+		setInterval(function() {
+		    if (didScroll) {
+		        hasScrolled();
+		        didScroll = false;
+		    }
+		}, 250);
+
+		function hasScrolled() {
+		    var st = $(this).scrollTop();
+		    
+		    // Make sure they scroll more than delta
+		    if(Math.abs(lastScrollTop - st) <= delta)
+		        return;
+		    
+		    // If they scrolled down and are past the navbar, add class .nav-up.
+		    // This is necessary so you never see what is "behind" the navbar.
+		    if (st > lastScrollTop && st > navbarHeight){
+		        // Scroll Down
+		        $('header').removeClass('nav-down').addClass('nav-up');
+		    } else {
+		        // Scroll Up
+		        if(st + $(window).height() < $(document).height()) {
+		            $('header').removeClass('nav-up').addClass('nav-down');
+		        }
+		    }
+		    
+		    lastScrollTop = st;
+		}
+	</script>
+
+
+	<header>
+		<div class="nav-box">
+			<div class="nav">
+				<div class="logo-wrap">
+					<img class="logo" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%206.svg?v=1670566152682"
+					style="cursor: pointer;"
+					onclick="location.href='index.html'">
+				</div>
+				<div class="nav-items">
+					<a href="index.html"><strong>MAIN</strong></a>
+					<a href="WPF_statistics.html">STATISTICS</a>
+					<a href="WPF_benchmark.html">BENCHMARK</a>
+					<a href="WPF_about.html">ABOUT</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="full">
+		<div class="container">
+			<div class="top">
+				<h1>#Graphic_Cards</h1>
+				<p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>
+				About performance and detailed informations of graphic cards, core of PC.</p>
+			</div>
+			<div class="blank-1"></div>
+			<div class="news-box">
+				<div class="news-select">
+					<img src="https://cdn.glitch.global/e43a8376-bbd2-4a31-8936-05c59f5b945d/Line%202.svg?v=1670560936414">
+					<h1>CONTENTS</h1>
+					<img src="https://cdn.glitch.global/e43a8376-bbd2-4a31-8936-05c59f5b945d/Line%202.svg?v=1670560936414">
+				</div>
+				<div class="news-banner-box">
+					<div class="news-banner">
+						<div class="box">
+							<div class="text-box-main">
+								<h2>GPU Lobby</h2>
+								<h1>어떤 그래픽 카드가 가장 강력할까?<br>그래픽카드 벤치마크 랭킹 알아보기</h1>
+								<p>PassMark Software는 PerformanceTest 사용자가 웹 사이트에 게시한 수백만 개의 벤치마크 결과를 자세히 조사하고 4개의 차트를 생성하여 AMD, Nvidia, Intel 등 주요 제조업체의 서로 다른 비디오 카드의 상대적인 성능을 비교해줍니다.</p>
+								<div class="button"
+								style="cursor: pointer;"
+								onclick="location.href='WPF_statistics.html'">
+									<p>더보기</p>
+								</div>
+							</div>
+						</div>
+						<img class="banner-cut" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202022-12-11%20195622.png?v=1670756193610">
+					</div>
+					<div class="news-banner">
+						<img class="banner-cut" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Mask%20group.png?v=1670821051107">
+						<div class="box">
+							<div class="text-box-main">
+								<h2>3DMark</h2>
+								<h1>내 그래픽 카드의 성능 알아보기</h1>
+								<p>같은 제품의 그래픽카드더라도 수율, PC의 냉각 환경 등에 따라서 낼 수 있는 성능이 크게 차이나는 경우가 존재합니다. 자신의 그래픽카드가 얼마나 강력한지 3DMark에서 시험해보세요!</p>
+								<div class="button"
+								style="cursor: pointer;"
+								onclick="location.href='WPF_benchmark.html'">
+									<p>더보기</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="news-banner">
+						<div class="box">
+							<div class="text-box-main">
+								<h2>GPU Lobby</h2>
+								<h1>GPU Lobby 비전 및 문의</h1>
+								<p>GPU Lobby에 대해 궁금한 것을 실시간 채팅을 통해 알아보세요!</p>
+								<div class="button"
+								style="cursor: pointer;"
+								onclick="location.href='WPF_about.html'">
+									<p>더보기</p>
+								</div>
+							</div>
+						</div>
+						<img class="banner-cut" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/live_chat_for_ecommerce_en_2x_cujcbu.jpg?v=1670818640533">
+					</div>
+				</div>
+			</div>
+			<div class="top-footer">
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://discord.com/')" 
+				>
+					<h1>Discord로 함께하기</h1>
+					<p>공식 GPU Lobby 디스코드에 참여하여 다른 사람들과 토론하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2096.svg?v=1670565914963">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://www.instagram.com/')"
+				>
+					<h1>Instargram으로 소식 받기</h1>
+					<p>공식 GPU Lobby 인스타그램을 팔로우하여 누구보다 빠르게 소식을 접하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2097.svg?v=1670776114678">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://twitter.com/')"
+				>
+					<h1>Twitter로 소통하기</h1>
+					<p>공식 GPU Lobby 트위터와 함께 새소식에 대해 이야기하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2098.svg?v=1670776114206">
+				</div>
+			</div>
+		</div>
+		<div class="big-banner">
+			<div class="big-banner-t"
+			style="cursor: pointer;"
+			onclick="window.open('https://www.msi.com/Graphics-Card/GeForce-RTX-4080-16GB-SUPRIM-X')">
+				<div class="wrap">
+					<h1>GeForce RTX™ 4080 16GB SUPRIM X</h1>
+					<p>From</p>
+					<h2>₩1,854,970</h2>
+					<div class="button">
+						<p>자세히 보기</p>
+					</div>
+					<div class="slid-n"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="box">
+			<div class="nav">
+				<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%201.svg?v=1670566712298">
+				<div class="text-box">
+					<h1 style=" cursor: pointer;" onclick="location.href='index.html';"><strong>MAIN</strong></h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_statistics.html';">STATISTICS</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_benchmark.html';">BENCMARK</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_about.html';">ABOUT</h1>
+				</div>
+				<div class="box">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-telegram-4.svg?v=1670567265243">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-gmail-4.svg?v=1670567267157">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-discord-4.svg?v=1670567266535">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-wechat-4.svg?v=1670567265880">
+				</div>
+			</div>
+			<div class="blank-2"></div>
+			<div class="text-box">
+				<h1>#Graphic_Cards</h1>
+				<p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>About performance and detailed informations of graphic cards, core of PC.</p>
+			</div>
+			<div class="nav_2">
+				<p class="footer_p">© Copyrights. 2022 GPU Lobby. All rights reserved. All trademarks are the property of their respective owners.</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

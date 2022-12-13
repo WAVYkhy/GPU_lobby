@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WPF_about</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<script type="text/javascript">
+		// Hide Header on on scroll down
+		var didScroll;
+		var lastScrollTop = 0;
+		var delta = 5;
+		var navbarHeight = $('header').outerHeight();
+
+		$(window).scroll(function(event){
+		    didScroll = true;
+		});
+
+		setInterval(function() {
+		    if (didScroll) {
+		        hasScrolled();
+		        didScroll = false;
+		    }
+		}, 250);
+
+		function hasScrolled() {
+		    var st = $(this).scrollTop();
+		    
+		    // Make sure they scroll more than delta
+		    if(Math.abs(lastScrollTop - st) <= delta)
+		        return;
+		    
+		    // If they scrolled down and are past the navbar, add class .nav-up.
+		    // This is necessary so you never see what is "behind" the navbar.
+		    if (st > lastScrollTop && st > navbarHeight){
+		        // Scroll Down
+		        $('header').removeClass('nav-down').addClass('nav-up');
+		    } else {
+		        // Scroll Up
+		        if(st + $(window).height() < $(document).height()) {
+		            $('header').removeClass('nav-up').addClass('nav-down');
+		        }
+		    }
+		    
+		    lastScrollTop = st;
+		}
+	</script>
+
+
+	<header>
+		<div class="nav-box">
+			<div class="nav">
+				<div class="logo-wrap">
+					<img class="logo" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%206.svg?v=1670566152682"
+					style="cursor: pointer;"
+					onclick="location.href='index.html'">
+				</div>
+				<div class="nav-items">
+					<a href="index.html">MAIN</a>
+					<a href="WPF_statistics.html">STATISTICS</a>
+					<a href="WPF_benchmark.html">BENCHMARK</a>
+					<a href="WPF_about.html"><strong>ABOUT</strong></a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="full">
+		<div class="container">
+			<div class="top">
+				
+				<h1>#Graphic_Cards</h1>
+				<p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>
+				About performance and detailed informations of graphic cards, core of PC.</p>
+			</div>
+			<div class="value-box">	
+				<h1>Our Values</h1>
+				<div class="values">	
+					<div class="text-box">
+						<div class="title">	
+								<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-party-20.svg?v=1670818047731" width="65px">
+								<h1>Be Your Own Character</h1>
+						</div>
+						<p>We are unapologetically ourselves and embrace our differences. We create and find joy in our work by following our passions.</p>
+					</div>
+					<div class="text-box">
+						<div class="title">	
+								<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/compass.png?v=1670818220091" width="65px">
+								<h1>Go Explore</h1>
+						</div>
+						<p>We stay curious, dare to question, challenge assumptions, and encourage debate. We run with new ideas into uncharted territory.</p>
+					</div>
+					<div class="text-box">
+						<div class="title">	
+								<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/level-up.png?v=1670818285596" width="65px">
+								<h1>Level Up</h1>
+						</div>
+						<p>We push ourselves to the next level and help others to do the same. We take accountability, welcome feedback, and learn from our mistakes.</p>
+					</div>
+					<div class="text-box">
+						<div class="title">	
+								<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/ribbon.png?v=1670818286362" width="65px">
+								<h1>Eyes on the Prize</h1>
+						</div>
+						<p>We focus on what matters most and move quickly toward our goals. We stick to fewer, bigger, better priorities.</p>
+					</div>
+					<div class="text-box">
+						<div class="title">	
+								<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-friend-4.svg?v=1670818047219" width="65px">
+								<h1>Play Co-op Mode</h1>
+						</div>
+						<p>We are better together and are empowered to share our opinions. We cooperate, play to people's strengths, and work toward a common goal.</p>
+					</div>
+
+				</div>	
+			</div>
+
+			<div class="top-footer">
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://discord.com/')" 
+				>
+					<h1>Discord로 함께하기</h1>
+					<p>공식 GPU Lobby 디스코드에 참여하여 다른 사람들과 토론하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2096.svg?v=1670565914963">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://www.instagram.com/')"
+				>
+					<h1>Instargram으로 소식 받기</h1>
+					<p>공식 GPU Lobby 인스타그램을 팔로우하여 누구보다 빠르게 소식을 접하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2097.svg?v=1670776114678">
+				</div>
+				<div class="box"
+				style="cursor: pointer;"
+				onclick="window.open('https://twitter.com/')"
+				>
+					<h1>Twitter로 소통하기</h1>
+					<p>공식 GPU Lobby 트위터와 함께 새소식에 대해 이야기하기</p>
+					<img class="icon" src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Group%2098.svg?v=1670776114206">
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!--Start of Tawk.to Script-->
+		<script type="text/javascript">
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+		s1.async=true;
+		s1.src='https://embed.tawk.to/6396a66db0d6371309d3eb2a/1gk27k6v9';
+		s1.charset='UTF-8';
+		s1.setAttribute('crossorigin','*');
+		s0.parentNode.insertBefore(s1,s0);
+		})();
+		</script>
+		<!--End of Tawk.to Script-->
+	<footer>
+		<div class="box">
+			<div class="nav">
+				<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/Frame%201.svg?v=1670566712298">
+				<div class="text-box">
+					<h1 style=" cursor: pointer;" onclick="location.href='index.html';">MAIN</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_statistics.html';">STATISTICS</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_benchmark.html';">BENCMARK</h1>
+					<h1 style=" cursor: pointer;" onclick="location.href='WPF_about.html';"><strong>ABOUT</strong></h1>
+				</div>
+				<div class="box">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-telegram-4.svg?v=1670567265243">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-gmail-4.svg?v=1670567267157">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-discord-4.svg?v=1670567266535">
+					<img src="https://cdn.glitch.global/9eb9e649-9244-43d5-b2bc-973d927a2fc4/iconmonstr-wechat-4.svg?v=1670567265880">
+				</div>
+			</div>
+			<div class="blank-2"></div>
+			<div class="text-box">
+				<h1>#Graphic_Cards</h1>
+				<p>PC의 핵심 부품인 그래픽 카드의 성능부터 상세한 정보까지.<br>About performance and detailed informations of graphic cards, core of PC.</p>
+			</div>
+			<div class="nav_2">
+				<p class="footer_p">© Copyrights. 2022 GPU Lobby. All rights reserved. All trademarks are the property of their respective owners.</p>
+			</div>
+		</div>
+	</footer>
